@@ -1,6 +1,9 @@
 # O jogo
 
-...
+Este sistema foi desenvolvido com o objetivo de reproduzir e desenvolver o jogo da velha sendo utilizada a API Marvel, com o prazo de sete dias e que deveria conter algumas validações. 
+
+São elas: Escolha de personagem, mensagens de erro quando não possuir o personagem, validação de jogadas e placar.
+
 
 ## Tecnologias utilizadas
 - Angular 10.0.0
