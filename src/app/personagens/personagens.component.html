@@ -1,0 +1,81 @@
+<!-- Toolbar -->
+<mat-toolbar color="warn" class="header">
+  <span class="title-center mat-h1">Jogo da velha Marvel</span>
+</mat-toolbar>
+<!-- main app container -->
+<mat-card class="card " style="background-color: #A9E2F3; ">
+  <div style="background-color: #EFF5FB; padding:5px;">
+    <div class="container">
+      <alert></alert>
+      <div class="row col">
+        <!-- <div class="row col-6">Jogador:</div> -->
+        <div class="row col-6" style="height: 125px;">
+          <form [formGroup]="myForm" (ngSubmit)="submitForm1()" novalidate class="example-form">
+            <mat-card>Jogador 1</mat-card>
+            <!-- Name -->
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nome do personagem 1" formControlName="namePlayer1">
+              <!-- error -->
+              <mat-error *ngIf="errorHandling('namePlayer1', 'required')">
+                O campo <strong>Nome do personagem</strong> é obrigatório!
+              </mat-error>
+            </mat-form-field>
+            <!-- Submit -->
+            <div>
+              <button class="button" mat-flat-button color="primary">Submit</button>
+            </div>
+          </form>
+        </div>
+        <!-- Placar -->
+        <mat-card class="card">
+          <mat-card-header (ngSubmit)="submitForm1()">
+            <mat-card-title *ngFor="let jogador1 of personagemEscolhido">{{ jogador1.name }}</mat-card-title>
+          </mat-card-header>
+          <div *ngFor="let jogador1 of personagemEscolhido">
+            <img mat-card-image class="img" src="{{jogador1.thumbnail.path}}.{{jogador1.thumbnail.extension}}" alt="marvel">
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <mat-divider style="margin-top: 7px;"></mat-divider>
+    <div class="container">
+      <div class="row col">
+        <!-- <div class="row col-6">Jogador:</div> -->
+        <div class="row col-6" style="height: 125px;">
+          <form [formGroup]="myForm" (ngSubmit)="submitForm2()" novalidate class="example-form">
+            <mat-card>Jogador 2</mat-card>
+            <!-- Name -->
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nome do personagem 2" formControlName="namePlayer2">
+              <!-- error -->
+              <mat-error *ngIf="errorHandling('namePlayer2', 'required')">
+                O campo <strong>Nome do personagem</strong> é obrigatório!
+              </mat-error>
+            </mat-form-field>
+            <!-- Submit -->
+            <div>
+              <button class="button" mat-flat-button color="primary">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+        <!-- Placar -->
+        <mat-card class="card ">
+          <mat-card-header (ngSubmit)="submitForm1()">
+            <mat-card-title *ngFor="let jogador2 of personagemEscolhido2">{{ jogador2.name }}</mat-card-title>
+          </mat-card-header>
+          <div *ngFor="let jogador2 of personagemEscolhido2">
+            <img mat-card-image class="img" src="{{jogador2.thumbnail.path}}.{{jogador2.thumbnail.extension}}" alt="marvel">
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <mat-divider style="margin-top: 7px; margin-bottom: 7px;"></mat-divider>
+    <mat-card>
+      <div style="height: 32px;">
+        <button class="button" style="margin-bottom: 2%;" mat-flat-button (click)="navigateTojogo()" color="primary">Iniciar jogo</button>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>
