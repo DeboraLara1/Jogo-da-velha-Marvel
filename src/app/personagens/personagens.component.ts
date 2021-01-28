@@ -74,14 +74,9 @@ export class PersonagemComponent implements OnInit {
 
     if(this.personagemEscolhido[0] != undefined) {
       this.thumbnail = this.personagemEscolhido[0].thumbnail.path + '.' + this.personagemEscolhido[0].thumbnail.extension
-
-      // console.log(this.personagemEscolhido[0])
-      // console.log(this.id)
-      // console.log(this.thumbnail)
-
+   
     } else {
-      this.alertService.error('Erro teste', this.options);
-
+      this.alertService.error('Personagem indisponível, tente novamente!', this.options);
     }
   }
 
@@ -91,14 +86,10 @@ export class PersonagemComponent implements OnInit {
 
     if(this.personagemEscolhido2[0] != undefined) {
       this.thumbnail = this.personagemEscolhido2[0].thumbnail.path + '.' + this.personagemEscolhido2[0].thumbnail.extension
-
-      // console.log(this.personagemEscolhido2[0])
-      // console.log(this.id)
-      // console.log(this.thumbnail)
-      // console.log(this.id + " " + this.id2)
-
+    
     } else if (this.myForm.value.namePlayer1 === this.myForm.value.namePlayer2) {
       this.alertService.error('Personagem já escolhido, tente novamente!', this.options);
+    
     } else {
       this.alertService.error('Personagem indisponível, tente novamente!', this.options);
     }
@@ -107,10 +98,10 @@ export class PersonagemComponent implements OnInit {
   navigateTojogo():void{
     var selectedCharacters = []
 
-    if (this.personagemEscolhido != undefined) {
+    if (this.personagemEscolhido.length === 1) {
       selectedCharacters.push(this.personagemEscolhido[0].name);
     }
-    if (this.personagemEscolhido2 != undefined) {
+    if (this.personagemEscolhido2.length === 1) {
       selectedCharacters.push(this.personagemEscolhido2[0].name);
     }
     
