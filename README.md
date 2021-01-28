@@ -7,7 +7,7 @@ São elas: Escolha de personagem, mensagens de erro quando não possuir o person
 
 ## Tecnologias utilizadas
 - Angular 10.0.0
-- Bootstrap ...
+- Bootstrap 4.1.3
 - Material
 
 ## Pré-requisitos
